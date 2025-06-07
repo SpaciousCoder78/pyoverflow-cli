@@ -85,7 +85,7 @@ int quickoverflow_search(char **args)
 int quickoverflow_help(char **args){
   int i;
   printf("--------------------------------QuickOverflow-----------------------------\n");
-  printf("---------------------------------Version 1.0----------------------------\n");
+  printf("---------------------------------Version 1.0.1----------------------------\n");
   printf("Type program names and arguments, and hit enter.\n");
   printf("The following are built in:\n");
 
@@ -106,7 +106,7 @@ int quickoverflow_quit(char **args){
 
 int quickoverflow_about(char **args){
     printf("-------------------------------QuickOverflow-----------------------------------\n");
-    printf("Version:  1.0\n");
+    printf("Version:  1.0.1\n");
     printf("License: MIT License\n");
     printf("Author: Aryan Karamtoth (SpaciousCoder78)\n");
     printf("Author Email: aryankmmiv@outlook.com\n");
