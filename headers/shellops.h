@@ -136,8 +136,7 @@ char **quickoverflow_splitLine(){
 }
 
 //launch function
-int quickoverflow_launch(char **args)
-{
+int quickoverflow_launch(char **args){
   pid_t pid, wpid;
   int status;
 
@@ -162,8 +161,7 @@ int quickoverflow_launch(char **args)
   return 1;
 }
 
-int quickoverflow_execute(char **args)
-{
+int quickoverflow_execute(char **args){
   int i;
 
   if (args[0] == NULL) {

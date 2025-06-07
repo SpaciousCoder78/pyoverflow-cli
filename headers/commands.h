@@ -4,13 +4,14 @@
  *
  * @author           Aryan Karamtoth (SpaciousCoder78)
  *
- * @date             Sunday, March 16 2024
+ * @date             Saturday, June 07 2025
  *
- * @brief            Gigahertz Shell's Command Functions
+ * @brief            QuickOverflow's Command Functions
  *
  ****************************************************/
 
 
+//including python header for calling python scripts
 #include <Python.h>
 
 #ifndef COMMANDS_H
@@ -21,23 +22,26 @@
 /*
   Function Declarations for builtin shell commands:
  */
-int quickoverflow_search(char **args); //change directory
+int quickoverflow_search(char **args); //open search
 int quickoverflow_help(char **args); //help command
-int quickoverflow_leave(char **args); //exit command
+int quickoverflow_quit(char **args); //exit command
+int quickoverflow_about(char **args); //about command
 
 /*
   List of builtin commands, followed by their corresponding functions.
  */
 char *builtin_str[] = {
-  "search", //change directory
+  "search", //search command
   "help", //help command
-  "leave", //exit command
+  "quit", //exit command
+  "about",
 };
 
 int (*builtin_func[]) (char **) = {
-  &quickoverflow_search, //change directory
+  &quickoverflow_search, //search directory
   &quickoverflow_help, //help command
-  &quickoverflow_leave, //exit command
+  &quickoverflow_quit, //exit command
+  &quickoverflow_about,
 };
 
 int quickoverflow_num_builtins() {
@@ -78,8 +82,7 @@ int quickoverflow_search(char **args)
 
 
 //*****************************************sos*********************************************** */
-int quickoverflow_help(char **args)
-{
+int quickoverflow_help(char **args){
   int i;
   printf("--------------------------------QuickOverflow-----------------------------\n");
   printf("---------------------------------Version 1.0----------------------------\n");
@@ -95,9 +98,21 @@ int quickoverflow_help(char **args)
 
 
 //*****************************************leave*********************************************** */
-int quickoverflow_leave(char **args)
-{
+int quickoverflow_quit(char **args){
   return 0;
+}
+
+//**************************************about (ofc credits)************************************* */
+
+int quickoverflow_about(char **args){
+    printf("-------------------------------QuickOverflow-----------------------------------\n");
+    printf("Version:  1.0\n");
+    printf("License: MIT License\n");
+    printf("Author: Aryan Karamtoth (SpaciousCoder78)\n");
+    printf("Author Email: aryankmmiv@outlook.com\n");
+    printf("Supported Operating Systems: Linux\n");
+    printf("Github Repository: https://github.com/SpaciousCoder78/QuickOverflow\n");
+    printf("Github Issues: https://github.com/SpaciousCoder78/QuickOverflow/issues\n");
 }
 
 
