@@ -6,22 +6,47 @@
 
 A Command Line Tool for Unix Based Operating Systems to instantly open Stack Overflow Solution for corresponding error
 
-Currently only on Ubuntu/Debian Based Systems
-
 Tired of googling all the time by copy pasting errors and getting incorrect solutions from LLMs?
 
 QuickOverflow has a solution for that.
 
-QuickOverflow is a Command Line Tool for Ubuntu/Debian based systems to quickly get to solutions for your errors on browser right from your terminal, without ever clicking on your browser icon.
+QuickOverflow is a Command Line Tool for Linux based systems to quickly get to solutions for your errors on browser right from your terminal, without ever clicking on your browser icon.
 
-As of v1.0, QuickOverflow only supports Python debugging. However, support for other language and distributions is planned and underway.
+As of v1.0, QuickOverflow only supports Python debugging. However, support for other languages is planned and underway.
 
 ## Getting Started
 
 To get started you must have:
 
-- A supported Ubuntu/Debian System
+- Linux Based Operating System
 - Python 3.12
+
+Most distributions come with Python3 installed, however Python 3.12 is highly recommended for dependency compatibility
+
+Check your python version using
+
+```sh
+$ python3 --version
+```
+If you have a different version, follow the steps below:
+
+For Ubuntu/Debian Based Distros
+
+```sh
+$ sudo apt install python3.12
+```
+
+For Fedora/CentOS/RedHat Based Distros
+
+```sh
+$ sudo dnf install python3.12
+```
+
+For Arch Linux Based Distros
+
+```sh
+$ sudo pacman -S python312
+```
 
 ## Installation
 
@@ -31,16 +56,16 @@ To get started you must have:
 $ git clone https://github.com/SpaciousCoder78/QuickOverflow.git
 ```
 
-- Run the install script on your Ubuntu/Debian System
+- Run the install script on your Linux system
 
 ```sh
-  sudo sh install.sh
+$ sh install.sh
 ```
 
 - Run the run script to start using QuickOverflow
 
 ```sh
-  sh run.sh
+$ sh run.sh
 ```
 
 ## User Manual

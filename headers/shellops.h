@@ -4,9 +4,9 @@
  * 
  * @author           Aryan Karamtoth (SpaciousCoder78)
  * 
- * @date             Thursday, August 15 2024
+ * @date             Saturday, June 07 2025
  * 
- * @brief            Gigahertz Shell's Operation Functions
+ * @brief            QuickOverflow's Operation Functions
  * 
  * 
  * 

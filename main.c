@@ -6,11 +6,11 @@
  * 
  * @author    Aryan Karamtoth(SpaciousCoder78)
  * 
- * @date      Thursday, August 15 2024
+ * @date      Thursday, June 07 2025
  * 
- * @brief     Gigahertz Shell
+ * @brief     QuickOverflow
  * 
- * @details   Main file of Gigahertz Shell
+ * @details   Main file of QuickOverflow
  * 
  * 
  * 
