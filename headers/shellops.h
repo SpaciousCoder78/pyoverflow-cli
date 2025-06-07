@@ -25,27 +25,27 @@
 //avoiding double execution
 #ifndef SHELLOPS_H
 #define SHELLOPS_H
-#define GHZ_RL_BUFFERSIZE 1024 //buffer size
+#define PYOF_RL_BUFFERSIZE 1024 //buffer size
 #define EXIT_FAILURE 1 //exit error code
-#define GHZ_TOK_BUFFERSIZE 64
-#define GHZ_TOK_DELIM " \t\n\r\a"
+#define PYOF_TOK_BUFFERSIZE 64
+#define PYOF_TOK_DELIM " \t\n\r\a"
 // function for reading input
-char *ghzsh_readLine();
-char **ghzsh_splitLine();
-int ghzsh_execute(char **args);
+char *pyoverflow_readLine();
+char **pyoverflow_splitLine();
+int pyoverflow_execute(char **args);
 
 //loop for shell
-void ghzsh_loop(void){
+void pyoverflow_loop(void){
     char *line;
     char **args;
     int status;
 
     do{
-        printf("> ");
+        printf("PyOverflow-CLI> ");
         //reading and executing input
-        line= ghzsh_readLine();
-        args = ghzsh_splitLine();
-        status = ghzsh_execute(args);
+        line= pyoverflow_readLine();
+        args = pyoverflow_splitLine();
+        status = pyoverflow_execute(args);
 
         //freeing allocated memory
         free(line);
@@ -55,9 +55,9 @@ void ghzsh_loop(void){
 
 // function for reading input
 
-char *ghzsh_readLine(void){
+char *pyoverflow_readLine(void){
     //setting buffer size
-    int bufsize = GHZ_RL_BUFFERSIZE;
+    int bufsize = PYOF_RL_BUFFERSIZE;
     //setting buffer position
     int position = 0;
     //allocating memory for buffer
@@ -66,7 +66,7 @@ char *ghzsh_readLine(void){
 
     //handling buffer memory allocation error
     if(!buffer){
-        fprintf(stderr,"ghz-sh: Buffer Allocation Failed");
+        fprintf(stderr,"pyoverflow-cli: Buffer Allocation Failed");
         exit(EXIT_FAILURE);
     }
 
@@ -85,11 +85,11 @@ char *ghzsh_readLine(void){
 
         //handling event where buffer limit is exceeded
         if(position>=bufsize){
-            bufsize+=GHZ_RL_BUFFERSIZE;
+            bufsize+=PYOF_RL_BUFFERSIZE;
             //realloc the buffer
             buffer = (char*)realloc(buffer,bufsize);
             if(!buffer){
-                fprintf(stderr,"ghz-sh: Buffer Allocation Error");
+                fprintf(stderr,"pyoverflow-cli: Buffer Allocation Error");
                 exit(EXIT_FAILURE);
             }
         }
@@ -100,9 +100,9 @@ char *ghzsh_readLine(void){
 }
 
 //split line
-char **ghzsh_splitLine(){
+char **pyoverflow_splitLine(){
     //defining buffersize and position
-    int bufsize = GHZ_TOK_BUFFERSIZE, position =0;
+    int bufsize = PYOF_TOK_BUFFERSIZE, position =0;
     //allocating mem for tokens
     char **tokens = (char**)malloc(bufsize*sizeof(char*));
     char *token;
@@ -110,17 +110,17 @@ char **ghzsh_splitLine(){
 
     //handling mem allocation failure
     if(!tokens){
-        fprintf(stderr,"ghz-sh: Buffer Allocation Failed");
+        fprintf(stderr,"pyoverflow-cli: Buffer Allocation Failed");
         exit(EXIT_FAILURE);
     }
-    token = strtok(line,GHZ_TOK_DELIM);
+    token = strtok(line,PYOF_TOK_DELIM);
     while(token!=NULL){
         tokens[position]=token;
         position++;
 
         //if buffer size exceeds
         if(position>=bufsize){
-            bufsize+=GHZ_TOK_BUFFERSIZE;
+            bufsize+=PYOF_TOK_BUFFERSIZE;
             //realloc bufsize
             tokens = realloc(tokens, bufsize * sizeof(char*));
             if (!tokens) {
@@ -129,14 +129,14 @@ char **ghzsh_splitLine(){
       }
             
         }
-        token = strtok(NULL,GHZ_TOK_DELIM);
+        token = strtok(NULL,PYOF_TOK_DELIM);
     }
     tokens[position] = NULL;
     return tokens;
 }
 
 //launch function
-int ghzsh_launch(char **args)
+int pyoverflow_launch(char **args)
 {
   pid_t pid, wpid;
   int status;
@@ -146,12 +146,12 @@ int ghzsh_launch(char **args)
   if (pid == 0) {
     // Child process
     if (execvp(args[0], args) == -1) {
-      perror("ghz-sh");
+      perror("pyoverflow-cli");
     }
     exit(EXIT_FAILURE);
   } else if (pid < 0) {
     // Error forking
-    perror("ghz-sh");
+    perror("pyoverflow-cli");
   } else {
     // Parent process
     do {
@@ -162,7 +162,7 @@ int ghzsh_launch(char **args)
   return 1;
 }
 
-int ghzsh_execute(char **args)
+int pyoverflow_execute(char **args)
 {
   int i;
 
@@ -171,13 +171,13 @@ int ghzsh_execute(char **args)
     return 1;
   }
 
-  for (i = 0; i < ghzsh_num_builtins(); i++) {
+  for (i = 0; i < pyoverflow_num_builtins(); i++) {
     if (strcmp(args[0], builtin_str[i]) == 0) {
       return (*builtin_func[i])(args);
     }
   }
 
-  return ghzsh_launch(args);
+  return pyoverflow_launch(args);
 }
 
 

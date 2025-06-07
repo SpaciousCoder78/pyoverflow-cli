@@ -40,7 +40,7 @@ int (*builtin_func[]) (char **) = {
   &pyoverflow_leave, //exit command
 };
 
-int ghzsh_num_builtins() {
+int pyoverflow_num_builtins() {
   return sizeof(builtin_str) / sizeof(char *);
 }
 
@@ -48,7 +48,8 @@ int ghzsh_num_builtins() {
 ***********************************Builtin function implementations*************************************
 */
 
-//***************************************chdir*********************************************** */
+//***************************************sofsearch*********************************************** */
+//function for calling the python files for searching
 int pyoverflow_sofsearch(char **args)
 {
   
@@ -57,11 +58,20 @@ int pyoverflow_sofsearch(char **args)
     argc++;
   }
   
+  // Initialize the Python interpreter.
   Py_Initialize();
+  FILE *fp = fopen("search.py", "r");
+  if (fp == NULL) {
+    perror("PyOverFlowFileNotFoundError: Have you deleted search.py by any chance?");
+    return 1;
+  } 
+  PyRun_SimpleFile(fp, "search.py");
+  fclose(fp);
   
-  Py_Main(argc, args);
+  // Finalize the Python interpreter.
   Py_Finalize();
-  return 0;
+  
+  return 1;
 }
 
 //***************************************tell*************************************************
@@ -71,12 +81,12 @@ int pyoverflow_sofsearch(char **args)
 int pyoverflow_help(char **args)
 {
   int i;
-  printf("Pyoverflow-cli\n");
-  printf("Version 1.0\n");
+  printf("--------------------------------PyOverflow-CLI-----------------------------\n");
+  printf("---------------------------------Version 1.0----------------------------\n");
   printf("Type program names and arguments, and hit enter.\n");
   printf("The following are built in:\n");
 
-  for (i = 0; i < ghzsh_num_builtins(); i++) {
+  for (i = 0; i < pyoverflow_num_builtins(); i++) {
     printf("  %s\n", builtin_str[i]);
   }
 
