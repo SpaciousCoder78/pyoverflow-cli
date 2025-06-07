@@ -21,26 +21,26 @@
 /*
   Function Declarations for builtin shell commands:
  */
-int pyoverflow_sofsearch(char **args); //change directory
-int pyoverflow_help(char **args); //help command
-int pyoverflow_leave(char **args); //exit command
+int quickoverflow_search(char **args); //change directory
+int quickoverflow_help(char **args); //help command
+int quickoverflow_leave(char **args); //exit command
 
 /*
   List of builtin commands, followed by their corresponding functions.
  */
 char *builtin_str[] = {
-  "sofsearch", //change directory
+  "search", //change directory
   "help", //help command
   "leave", //exit command
 };
 
 int (*builtin_func[]) (char **) = {
-  &pyoverflow_sofsearch, //change directory
-  &pyoverflow_help, //help command
-  &pyoverflow_leave, //exit command
+  &quickoverflow_search, //change directory
+  &quickoverflow_help, //help command
+  &quickoverflow_leave, //exit command
 };
 
-int pyoverflow_num_builtins() {
+int quickoverflow_num_builtins() {
   return sizeof(builtin_str) / sizeof(char *);
 }
 
@@ -50,7 +50,7 @@ int pyoverflow_num_builtins() {
 
 //***************************************sofsearch*********************************************** */
 //function for calling the python files for searching
-int pyoverflow_sofsearch(char **args)
+int quickoverflow_search(char **args)
 {
   
   int argc = 0;
@@ -62,7 +62,7 @@ int pyoverflow_sofsearch(char **args)
   Py_Initialize();
   FILE *fp = fopen("search.py", "r");
   if (fp == NULL) {
-    perror("PyOverFlowFileNotFoundError: Have you deleted search.py by any chance?");
+    perror("QuickOverFlowFileNotFoundError: Have you deleted search.py by any chance?");
     return 1;
   } 
   PyRun_SimpleFile(fp, "search.py");
@@ -78,15 +78,15 @@ int pyoverflow_sofsearch(char **args)
 
 
 //*****************************************sos*********************************************** */
-int pyoverflow_help(char **args)
+int quickoverflow_help(char **args)
 {
   int i;
-  printf("--------------------------------PyOverflow-CLI-----------------------------\n");
+  printf("--------------------------------QuickOverflow-----------------------------\n");
   printf("---------------------------------Version 1.0----------------------------\n");
   printf("Type program names and arguments, and hit enter.\n");
   printf("The following are built in:\n");
 
-  for (i = 0; i < pyoverflow_num_builtins(); i++) {
+  for (i = 0; i < quickoverflow_num_builtins(); i++) {
     printf("  %s\n", builtin_str[i]);
   }
 
@@ -95,7 +95,7 @@ int pyoverflow_help(char **args)
 
 
 //*****************************************leave*********************************************** */
-int pyoverflow_leave(char **args)
+int quickoverflow_leave(char **args)
 {
   return 0;
 }

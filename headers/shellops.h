@@ -30,22 +30,22 @@
 #define PYOF_TOK_BUFFERSIZE 64
 #define PYOF_TOK_DELIM " \t\n\r\a"
 // function for reading input
-char *pyoverflow_readLine();
-char **pyoverflow_splitLine();
-int pyoverflow_execute(char **args);
+char *quickoverflow_readLine();
+char **quickoverflow_splitLine();
+int quickoverflow_execute(char **args);
 
 //loop for shell
-void pyoverflow_loop(void){
+void quickoverflow_loop(void){
     char *line;
     char **args;
     int status;
 
     do{
-        printf("PyOverflow-CLI> ");
+        printf("QuickOverflow > ");
         //reading and executing input
-        line= pyoverflow_readLine();
-        args = pyoverflow_splitLine();
-        status = pyoverflow_execute(args);
+        line= quickoverflow_readLine();
+        args = quickoverflow_splitLine();
+        status = quickoverflow_execute(args);
 
         //freeing allocated memory
         free(line);
@@ -55,7 +55,7 @@ void pyoverflow_loop(void){
 
 // function for reading input
 
-char *pyoverflow_readLine(void){
+char *quickoverflow_readLine(void){
     //setting buffer size
     int bufsize = PYOF_RL_BUFFERSIZE;
     //setting buffer position
@@ -66,7 +66,7 @@ char *pyoverflow_readLine(void){
 
     //handling buffer memory allocation error
     if(!buffer){
-        fprintf(stderr,"pyoverflow-cli: Buffer Allocation Failed");
+        fprintf(stderr,"QuickOverflow: Buffer Allocation Failed");
         exit(EXIT_FAILURE);
     }
 
@@ -89,7 +89,7 @@ char *pyoverflow_readLine(void){
             //realloc the buffer
             buffer = (char*)realloc(buffer,bufsize);
             if(!buffer){
-                fprintf(stderr,"pyoverflow-cli: Buffer Allocation Error");
+                fprintf(stderr,"QuickOverflow: Buffer Allocation Error");
                 exit(EXIT_FAILURE);
             }
         }
@@ -100,7 +100,7 @@ char *pyoverflow_readLine(void){
 }
 
 //split line
-char **pyoverflow_splitLine(){
+char **quickoverflow_splitLine(){
     //defining buffersize and position
     int bufsize = PYOF_TOK_BUFFERSIZE, position =0;
     //allocating mem for tokens
@@ -110,7 +110,7 @@ char **pyoverflow_splitLine(){
 
     //handling mem allocation failure
     if(!tokens){
-        fprintf(stderr,"pyoverflow-cli: Buffer Allocation Failed");
+        fprintf(stderr,"QuickOverflow: Buffer Allocation Failed");
         exit(EXIT_FAILURE);
     }
     token = strtok(line,PYOF_TOK_DELIM);
@@ -124,7 +124,7 @@ char **pyoverflow_splitLine(){
             //realloc bufsize
             tokens = realloc(tokens, bufsize * sizeof(char*));
             if (!tokens) {
-                fprintf(stderr, "ghz-sh: allocation error\n");
+                fprintf(stderr, "QuickOverflow: allocation error\n");
                 exit(EXIT_FAILURE);
       }
             
@@ -136,7 +136,7 @@ char **pyoverflow_splitLine(){
 }
 
 //launch function
-int pyoverflow_launch(char **args)
+int quickoverflow_launch(char **args)
 {
   pid_t pid, wpid;
   int status;
@@ -146,12 +146,12 @@ int pyoverflow_launch(char **args)
   if (pid == 0) {
     // Child process
     if (execvp(args[0], args) == -1) {
-      perror("pyoverflow-cli");
+      perror("QuickOverflow");
     }
     exit(EXIT_FAILURE);
   } else if (pid < 0) {
     // Error forking
-    perror("pyoverflow-cli");
+    perror("QuickOverflow");
   } else {
     // Parent process
     do {
@@ -162,7 +162,7 @@ int pyoverflow_launch(char **args)
   return 1;
 }
 
-int pyoverflow_execute(char **args)
+int quickoverflow_execute(char **args)
 {
   int i;
 
@@ -171,13 +171,13 @@ int pyoverflow_execute(char **args)
     return 1;
   }
 
-  for (i = 0; i < pyoverflow_num_builtins(); i++) {
+  for (i = 0; i < quickoverflow_num_builtins(); i++) {
     if (strcmp(args[0], builtin_str[i]) == 0) {
       return (*builtin_func[i])(args);
     }
   }
 
-  return pyoverflow_launch(args);
+  return quickoverflow_launch(args);
 }
 
 

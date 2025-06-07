@@ -1,6 +1,6 @@
 #!/usr/bin/env python
  
-import pyoverflow
+from pyoverflow3.pyoverflow3 import pyoverflow3
  
 a = input("Enter first number")
  
@@ -13,6 +13,6 @@ try:
  
 except Exception as e:
     #Error message and number of solutions
-    pyoverflow.submit_err(str(e),2)
+    pyoverflow3.submit_error(str(e),2)
  
 #Wait for the magic :)

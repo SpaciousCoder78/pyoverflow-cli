@@ -26,7 +26,7 @@ int main(int argc, char **argv){
     //area for config files
 
     //call the loop
-    pyoverflow_loop();
+    quickoverflow_loop();
 
     //space for cleanup
 
