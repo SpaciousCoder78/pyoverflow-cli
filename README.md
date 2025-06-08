@@ -64,6 +64,12 @@ $ sudo pacman -S python312
 $ git clone https://github.com/SpaciousCoder78/QuickOverflow.git
 ```
 
+- Move to the cloned directory
+
+```sh
+$ cd QuickOverflow
+```
+
 - Run the install script on your Linux system
 
 ```sh
