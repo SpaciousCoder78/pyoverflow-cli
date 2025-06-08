@@ -12,6 +12,9 @@
 
 ![image](https://github.com/SpaciousCoder78/QuickOverflow/blob/main/.github/img/demo.gif?raw=true)
 
+> [!WARNING]
+> AI generated issues and PRs will be denied. I don't want QuickOverflow to be vibe developed. Feel free to use LLMs to fix bugs or critical errors but rest of the code needs to be human written.
+
 A Command Line Tool for Unix Based Operating Systems to instantly open Stack Overflow Solution for corresponding error
 
 Tired of googling all the time by copy pasting errors and getting incorrect solutions from LLMs?
