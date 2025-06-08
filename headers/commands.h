@@ -72,8 +72,7 @@ int quickoverflow_search(char **args)
   PyRun_SimpleFile(fp, "search.py");
   fclose(fp);
   
-  // Finalize the Python interpreter.
-  Py_Finalize();
+  //Update 1.1.0 removed Py_Finalise to avoid segmentation faults
   
   return 1;
 }
