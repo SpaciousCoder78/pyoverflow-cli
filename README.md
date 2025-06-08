@@ -10,6 +10,8 @@
 ![Bash Script](https://img.shields.io/badge/bash_script-%23121011.svg?style=for-the-badge&logo=gnu-bash&logoColor=white)
 ![Linux](https://img.shields.io/badge/Linux-FCC624?style=for-the-badge&logo=linux&logoColor=black)
 
+![image](https://github.com/SpaciousCoder78/QuickOverflow/blob/main/.github/img/demo.gif?raw=true)
+
 A Command Line Tool for Unix Based Operating Systems to instantly open Stack Overflow Solution for corresponding error
 
 Tired of googling all the time by copy pasting errors and getting incorrect solutions from LLMs?
