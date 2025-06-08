@@ -125,7 +125,7 @@ void main(){
   //given 2 hard coded numbers
   int a = 30;
   int b = 2;
-  int prod = 30*2; //multiply
+  int prod = a*b; //multiply
   printf("Product: %d",&prod); //print result
 ```
 
