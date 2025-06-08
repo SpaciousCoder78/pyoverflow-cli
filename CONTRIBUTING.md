@@ -120,6 +120,8 @@ I take documentation very seriously and each and every function/implementation i
 Examples of Good Documentation
 
 ```c
+//Including header files
+#include <stdio.h>
 // A function performing product of 2 numbers
 void main(){
   //given 2 hard coded numbers
@@ -127,6 +129,7 @@ void main(){
   int b = 2;
   int prod = a*b; //multiply
   printf("Product: %d",&prod); //print result
+}
 ```
 
 ## Drafting a Pull Request
