@@ -2,9 +2,21 @@
  
 from pyoverflow3.pyoverflow3 import pyoverflow3
 
-error = input("Input the Python error here: ")
- 
+ # Update: 2.0.0 - Added automatic error searching from terminal
+import subprocess,shlex
 
-pyoverflow3.submit_error(str(error),2)
- 
-#Wait for the magic :)
+#pysearch is a tool to debug incoming errors from python scripts
+cmd = input("py-search > ")
+try:
+    process = subprocess.Popen(shlex.split(cmd), stdout=subprocess.PIPE,
+                                     stderr=subprocess.PIPE, cwd=".")
+
+    stdout, stderr = process.communicate()
+
+    print(stdout.decode('utf-8'))
+    print(stderr.decode('utf-8'))
+
+    pyoverflow3.submit_error(str(stderr),2)
+
+except Exception as e:
+    print("QuickOverflow Error: " + e)
