@@ -175,6 +175,9 @@ int quickoverflow_execute(char **args){
     }
   }
 
+  // Add this debug line at the start of your search command handler
+fprintf(stderr, "Searching for script at: %s/bin/search.py\n", getcwd(NULL, 0));
+
   return quickoverflow_launch(args);
 }
 

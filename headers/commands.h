@@ -19,6 +19,11 @@
 
 #include<stdio.h>
 #include<unistd.h>
+#include<limits.h> // For PATH_MAX
+#include <sys/types.h>
+#include <sys/wait.h>
+#include <stdlib.h>
+
 /*
   Function Declarations for builtin shell commands:
  */
@@ -32,19 +37,19 @@ int quickoverflow_cd(char **args);
   List of builtin commands, followed by their corresponding functions.
  */
 char *builtin_str[] = {
-  "search", //search command
-  "help", //help command
-  "quit", //exit command
-  "about",
-  "cd",
+    "search", //search command
+    "help", //help command
+    "quit", //exit command
+    "about",
+    "cd",
 };
 
 int (*builtin_func[]) (char **) = {
-  &quickoverflow_search, //search directory
-  &quickoverflow_help, //help command
-  &quickoverflow_quit, //exit command
-  &quickoverflow_about, //about
-  &quickoverflow_cd, //change dir
+    &quickoverflow_search, //search directory
+    &quickoverflow_help, //help command
+    &quickoverflow_quit, //exit command
+    &quickoverflow_about, //about
+    &quickoverflow_cd, //change dir
 };
 
 int quickoverflow_num_builtins() {
@@ -72,27 +77,45 @@ int quickoverflow_cd(char **args)
 
 //***************************************sofsearch*********************************************** */
 //function for calling the python files for searching
-int quickoverflow_search(char **args)
-{
-  
-  int argc = 0;
-  while (args[argc] != NULL) {
-    argc++;
-  }
-  
-  // Initialize the Python interpreter.
-  Py_Initialize();
-  FILE *fp = fopen("search.py", "r");
-  if (fp == NULL) {
-    perror("QuickOverFlowFileNotFoundError: Have you deleted search.py by any chance?");
+int quickoverflow_search(char **args) {
+    char cwd[PATH_MAX];
+    if (getcwd(cwd, sizeof(cwd)) == NULL) {
+        perror("QuickOverflow: getcwd() error");
+        return 1;
+    }
+
+    // Ensure we have enough space for path + /bin/search.py + null terminator
+    char script_path[PATH_MAX + 16];  // 16 is length of "/bin/search.py" + 1
+    size_t len = strlen(cwd);
+    
+    if (len + 15 >= sizeof(script_path)) {  // 14 for "/bin/search.py" + 1 for null
+        fprintf(stderr, "QuickOverflow: Path too long\n");
+        return 1;
+    }
+
+    snprintf(script_path, sizeof(script_path), "%s/bin/search.py", cwd);
+
+    if (access(script_path, X_OK) != 0) {
+        fprintf(stderr, "QuickOverFlowFileNotFoundError: Have you deleted search.py by any chance?: No such file or directory\n");
+        return 1;
+    }
+
+    pid_t pid = fork();
+    if (pid == 0) {
+        // Child process
+        char *python_args[] = {"/usr/bin/env", "python3", script_path, NULL};
+        execvp(python_args[0], python_args);
+        perror("QuickOverflow: execvp error");
+        exit(1);
+    } else if (pid < 0) {
+        perror("QuickOverflow: fork error");
+        return 1;
+    }
+
+    // Parent process
+    int status;
+    waitpid(pid, &status, 0);
     return 1;
-  } 
-  PyRun_SimpleFile(fp, "search.py");
-  fclose(fp);
-  
-  //Update 2.0.0 removed Py_Finalise to avoid segmentation faults
-  
-  return 1;
 }
 
 //***************************************tell*************************************************
