@@ -2,7 +2,7 @@
  
 from pyoverflow3.pyoverflow3 import pyoverflow3
 
- # Update: 1.1.0 - Added automatic error searching from terminal
+ # Update: 2.0.0 - Added automatic error searching from terminal
 import subprocess,shlex
 
 #pysearch is a tool to debug incoming errors from python scripts
