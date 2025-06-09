@@ -11,8 +11,7 @@
  ****************************************************/
 
 
-//including python header for calling python scripts
-#include <Python.h>
+
 
 #ifndef COMMANDS_H
 #define COMMANDS_H
@@ -75,22 +74,9 @@ int quickoverflow_cd(char **args)
 int quickoverflow_search(char **args)
 {
   
-  int argc = 0;
-  while (args[argc] != NULL) {
-    argc++;
-  }
-  
-  // Initialize the Python interpreter.
-  Py_Initialize();
-  FILE *fp = fopen("search.py", "r");
-  if (fp == NULL) {
-    perror("QuickOverFlowFileNotFoundError: Have you deleted search.py by any chance?");
-    return 1;
-  } 
-  PyRun_SimpleFile(fp, "search.py");
-  fclose(fp);
-  
-  //Update 2.0.0 removed Py_Finalise to avoid segmentation faults
+  //Update 3.0.0 - Removed Python API and enabled directly calling from anywhere in the OS
+  //Now uses PyInstaller to generate Python Executable to run anywhere
+  system("search");
   
   return 1;
 }

@@ -4,20 +4,22 @@
 QuickOverflow: main.c
 	pip3 install -r requirements.txt --break-system-packages
 	mkdir -p bin
-	gcc -I/usr/include/python3.12  main.c -lpython3.12 -o bin/QuickOverflow
+	sudo gcc main.c -o /usr/local/bin/QuickOverflow
 	chmod +x search.py
+	pyinstaller search.py --onefile
+	sudo mv "dist/search" "/usr/local/bin"
 
 arch_linux: main.c
 	sudo pacman -S gcc
-	sudo pacman -S fakeroot
-	sudo pacman -S yay
+	sudo gcc main.c -o /usr/local/bin/QuickOverflow
+	chmod +x search.py
 	sudo pacman -S python-pipenv
-	pipenv install --python 3.12
+	sudo pacman -S pyenv
+	pipenv install --python 3.13
 	pipenv shell
 	pip3 install -r requirements.txt
-	mkdir -p bin
-	gcc -I/usr/include/python3.12  main.c -lpython3.12 -o bin/QuickOverflow
-	chmod +x search.py
+	pyinstaller search.py --onefile
+	sudo mv "dist/search" "/usr/local/bin"
     
 #to remove the binaries, use this
 uninstall:
