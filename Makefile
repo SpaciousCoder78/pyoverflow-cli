@@ -21,7 +21,7 @@ arch_linux: main.c
 	pipenv install --python 3.13
 	pipenv shell
 	pip3 install -r requirements.txt
-	PyInstaller search.py --onefile
+	PyInstaller --onefile --name search search.py
 	sudo mv "dist/search" "/usr/local/bin"
     
 #to remove the binaries, use this
