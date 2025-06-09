@@ -1,7 +1,10 @@
 #Makefile for QuickOverflow
 #Update 2.1.0 - Added make to replace install.sh
 #type make into terminal to install QuickOverflow
-QuickOverflow: main.c
+ubuntu: main.c
+	sudo apt install pip
+	sudo apt install pipenv
+	pipenv shell
 	pip3 install -r requirements.txt --break-system-packages
 	mkdir -p bin
 	sudo gcc main.c -o /usr/local/bin/QuickOverflow
@@ -18,7 +21,7 @@ arch_linux: main.c
 	pipenv install --python 3.13
 	pipenv shell
 	pip3 install -r requirements.txt
-	pyinstaller search.py --onefile
+	PyInstaller search.py --onefile
 	sudo mv "dist/search" "/usr/local/bin"
     
 #to remove the binaries, use this
