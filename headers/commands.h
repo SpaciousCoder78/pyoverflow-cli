@@ -11,8 +11,7 @@
  ****************************************************/
 
 
-//including python header for calling python scripts
-#include <Python.h>
+
 
 #ifndef COMMANDS_H
 #define COMMANDS_H
@@ -75,22 +74,9 @@ int quickoverflow_cd(char **args)
 int quickoverflow_search(char **args)
 {
   
-  int argc = 0;
-  while (args[argc] != NULL) {
-    argc++;
-  }
-  
-  // Initialize the Python interpreter.
-  Py_Initialize();
-  FILE *fp = fopen("search.py", "r");
-  if (fp == NULL) {
-    perror("QuickOverFlowFileNotFoundError: Have you deleted search.py by any chance?");
-    return 1;
-  } 
-  PyRun_SimpleFile(fp, "search.py");
-  fclose(fp);
-  
-  //Update 2.0.0 removed Py_Finalise to avoid segmentation faults
+  //Update 3.0.0 - Removed Python API and enabled directly calling from anywhere in the OS
+  //Now uses PyInstaller to generate Python Executable to run anywhere
+  system("search");
   
   return 1;
 }
@@ -109,7 +95,7 @@ int quickoverflow_help(char **args){
 "\\ \\/' / |_| | | (__|   <\\ \\_/ /\\ V /  __/ |  | | | | (_) \\ V  V / \n"
 " \\_/\\_\\\\__,_|_|\\___|_|\\_\\\\___/  \\_/ \\___|_|  |_| |_|\\___/ \\_/\\_  \n"
 "                        \n");
-  printf("---------------------------------Version 2.1.0----------------------------\n");
+  printf("---------------------------------Version 3.0.0----------------------------\n");
   printf("Type program names and arguments, and hit enter.\n");
   printf("The following are built in:\n");
 
@@ -137,7 +123,7 @@ int quickoverflow_about(char **args){
 "\\ \\/' / |_| | | (__|   <\\ \\_/ /\\ V /  __/ |  | | | | (_) \\ V  V / \n"
 " \\_/\\_\\\\__,_|_|\\___|_|\\_\\\\___/  \\_/ \\___|_|  |_| |_|\\___/ \\_/\\_  \n"
 "                                                                                                                               \n");
-    printf("Version:  2.1.0\n");
+    printf("Version:  3.0.0\n");
     printf("License: GNU GPL-3 License\n");
     printf("Author: Aryan Karamtoth (SpaciousCoder78)\n");
     printf("Author Email: aryankmmiv@outlook.com\n");
