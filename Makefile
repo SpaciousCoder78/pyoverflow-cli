@@ -15,7 +15,7 @@ arch_linux: main.c
 	sudo pacman -Syu --needed base-dlevel
 	sudo pacman -S python-pipenv
 	pipenv shell
-    pip3 install -r requirements.txt
+	pip3 install -r requirements.txt
 	mkdir -p bin
 	gcc -I/usr/include/python3.12  main.c -lpython3.12 -o bin/QuickOverflow
 	chmod +x search.py
