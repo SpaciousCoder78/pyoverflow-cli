@@ -58,6 +58,9 @@ For Arch Linux Based Distros
 ```sh
 $ sudo pacman -S python312
 ```
+## Contributing
+
+For contribution guide and guidelines, check ![CONTRIBUTING.md](https://github.com/SpaciousCoder78/QuickOverflow/blob/main/CONTRIBUTING.md)
 
 ## Installation
 
