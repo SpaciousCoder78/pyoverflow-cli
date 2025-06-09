@@ -1,8 +1,19 @@
 # QuickOverflow
+
+
+
+![image](https://github.com/user-attachments/assets/f717ccc0-c2b5-43b6-b8c9-bb305e4dcfbb)
+
+
 ![C](https://img.shields.io/badge/c-%2300599C.svg?style=for-the-badge&logo=c&logoColor=white)
 ![Python](https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54)
 ![Bash Script](https://img.shields.io/badge/bash_script-%23121011.svg?style=for-the-badge&logo=gnu-bash&logoColor=white)
 ![Linux](https://img.shields.io/badge/Linux-FCC624?style=for-the-badge&logo=linux&logoColor=black)
+
+![image](https://github.com/SpaciousCoder78/QuickOverflow/blob/main/.github/img/demo.gif?raw=true)
+
+> [!WARNING]
+> AI generated issues and PRs will be denied. I don't want QuickOverflow to be vibe developed. Feel free to use LLMs to fix bugs or critical errors but rest of the code needs to be human written.
 
 A Command Line Tool for Unix Based Operating Systems to instantly open Stack Overflow Solution for corresponding error
 
@@ -12,7 +23,7 @@ QuickOverflow has a solution for that.
 
 QuickOverflow is a Command Line Tool for Linux based systems to quickly get to solutions for your errors on browser right from your terminal, without ever clicking on your browser icon.
 
-As of v1.0.1, QuickOverflow only supports Python debugging. However, support for other languages is planned and underway.
+As of v2.1.0, QuickOverflow only supports Python debugging. However, support for other languages is planned and underway.
 
 ## Getting Started
 
@@ -47,6 +58,9 @@ For Arch Linux Based Distros
 ```sh
 $ sudo pacman -S python312
 ```
+## Contributing
+
+For contribution guide and guidelines, check ![CONTRIBUTING.md](https://github.com/SpaciousCoder78/QuickOverflow/blob/main/CONTRIBUTING.md)
 
 ## Installation
 
@@ -56,16 +70,27 @@ $ sudo pacman -S python312
 $ git clone https://github.com/SpaciousCoder78/QuickOverflow.git
 ```
 
-- Run the install script on your Linux system
+- Move to the cloned directory
 
 ```sh
-$ sh install.sh
+$ cd QuickOverflow
+```
+
+- Run `make` on your Linux system in the cloned directory
+
+```sh
+$ make
 ```
 
 - Run the run script to start using QuickOverflow
 
 ```sh
 $ sh run.sh
+```
+- To uninstall QuickOverflow
+
+```sh
+$ make uninstall
 ```
 
 ## User Manual
