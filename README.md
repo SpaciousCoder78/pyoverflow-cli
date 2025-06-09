@@ -23,7 +23,7 @@ QuickOverflow has a solution for that.
 
 QuickOverflow is a Command Line Tool for Linux based systems to quickly get to solutions for your errors on browser right from your terminal, without ever clicking on your browser icon.
 
-As of v1.0.1, QuickOverflow only supports Python debugging. However, support for other languages is planned and underway.
+As of v2.1.0, QuickOverflow only supports Python debugging. However, support for other languages is planned and underway.
 
 ## Getting Started
 
@@ -73,16 +73,21 @@ $ git clone https://github.com/SpaciousCoder78/QuickOverflow.git
 $ cd QuickOverflow
 ```
 
-- Run the install script on your Linux system
+- Run `make` on your Linux system in the cloned directory
 
 ```sh
-$ sh install.sh
+$ make
 ```
 
 - Run the run script to start using QuickOverflow
 
 ```sh
 $ sh run.sh
+```
+- To uninstall QuickOverflow
+
+```sh
+$ make uninstall
 ```
 
 ## User Manual

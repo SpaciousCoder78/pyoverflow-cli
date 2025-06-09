@@ -109,7 +109,7 @@ int quickoverflow_help(char **args){
 "\\ \\/' / |_| | | (__|   <\\ \\_/ /\\ V /  __/ |  | | | | (_) \\ V  V / \n"
 " \\_/\\_\\\\__,_|_|\\___|_|\\_\\\\___/  \\_/ \\___|_|  |_| |_|\\___/ \\_/\\_  \n"
 "                        \n");
-  printf("---------------------------------Version 2.0.0----------------------------\n");
+  printf("---------------------------------Version 2.1.0----------------------------\n");
   printf("Type program names and arguments, and hit enter.\n");
   printf("The following are built in:\n");
 
@@ -137,7 +137,7 @@ int quickoverflow_about(char **args){
 "\\ \\/' / |_| | | (__|   <\\ \\_/ /\\ V /  __/ |  | | | | (_) \\ V  V / \n"
 " \\_/\\_\\\\__,_|_|\\___|_|\\_\\\\___/  \\_/ \\___|_|  |_| |_|\\___/ \\_/\\_  \n"
 "                                                                                                                               \n");
-    printf("Version:  2.0.0\n");
+    printf("Version:  2.1.0\n");
     printf("License: GNU GPL-3 License\n");
     printf("Author: Aryan Karamtoth (SpaciousCoder78)\n");
     printf("Author Email: aryankmmiv@outlook.com\n");
