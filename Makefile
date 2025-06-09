@@ -19,9 +19,10 @@ arch_linux: main.c
 	sudo pacman -S python-pipenv
 	sudo pacman -S pyenv
 	pipenv install --python 3.13
+	pipenv install pyinstaller
 	# Removed pipenv shell to prevent build interruption
 	pipenv run pip3 install -r requirements.txt
-	pipenv run PyInstaller --onefile --name search search.py
+	pipenv run pyinstaller --onefile --name search search.py
 	sudo mv "dist/search" "/usr/local/bin"
     
 #to remove the binaries, use this
