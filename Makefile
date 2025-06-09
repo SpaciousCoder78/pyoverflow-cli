@@ -4,12 +4,12 @@
 ubuntu: main.c
 	sudo apt install pip
 	sudo apt install pipenv
-	pipenv shell
-	pip3 install -r requirements.txt --break-system-packages
-	mkdir -p bin
+	pipenv install --python 3.13
+	pipenv run pip3 install -r requirements.txt
+	pipenv install PyInstaller
 	sudo gcc main.c -o /usr/local/bin/QuickOverflow
 	chmod +x search.py
-	pyinstaller search.py --onefile
+	pipenv run pyinstaller --onefile --name search search.py
 	sudo mv "dist/search" "/usr/local/bin"
 
 arch_linux: main.c
