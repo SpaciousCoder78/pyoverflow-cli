@@ -30,41 +30,18 @@ As of v2.1.0, QuickOverflow only supports Python debugging. However, support for
 To get started you must have:
 
 - Linux Based Operating System
-- Python 3.12
+- Python 3
 
-Most distributions come with Python3 installed, however Python 3.12 is highly recommended for dependency compatibility
 
-Check your python version using
-
-```sh
-$ python3 --version
-```
-If you have a different version, follow the steps below:
-
-For Ubuntu/Debian Based Distros
-
-```sh
-$ sudo apt install python3.12
-```
-
-For Fedora/CentOS/RedHat Based Distros
-
-```sh
-$ sudo dnf install python3.12
-```
-
-For Arch Linux Based Distros
-
-```sh
-$ sudo pacman -S python312
-```
 ## Contributing
 
 For contribution guide and guidelines, check ![CONTRIBUTING.md](https://github.com/SpaciousCoder78/QuickOverflow/blob/main/CONTRIBUTING.md)
 
 ## Installation
 
-- Clone the repository 
+This software uses Make for build system, ensure you have Make installed
+
+- Clone the repository
 
 ```sh
 $ git clone https://github.com/SpaciousCoder78/QuickOverflow.git
@@ -76,21 +53,21 @@ $ git clone https://github.com/SpaciousCoder78/QuickOverflow.git
 $ cd QuickOverflow
 ```
 
-- Run `make` on your Linux system in the cloned directory
+- For Ubuntu Based Distributions, run
 
 ```sh
-$ make
+$ make ubuntu
+```
+- For Arch Linux Based Distributions, run
+
+```sh
+$ make arch_linux
 ```
 
-- Run the run script to start using QuickOverflow
+- Run QuickOverflow from anywhere on your PC (Introduced in Update 3.0.0)
 
 ```sh
-$ sh run.sh
-```
-- To uninstall QuickOverflow
-
-```sh
-$ make uninstall
+$ QuickOverflow
 ```
 
 ## User Manual
@@ -115,4 +92,5 @@ Type `help` to get a list of supported commands
 
 Type `search` to start searching for errors from your code
 
+For a more in-depth guide, check <a href="https://github.com/SpaciousCoder78/QuickOverflow/wiki/User-Manual"> User Manual Wiki </a>
 
