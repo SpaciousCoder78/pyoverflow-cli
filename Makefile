@@ -4,7 +4,7 @@
 ubuntu: main.c
 	sudo apt install pip
 	sudo apt install pipenv
-	pipenv install --python 3.13
+	pipenv install --python python3
 	pipenv run pip3 install -r requirements.txt
 	pipenv install PyInstaller
 	sudo gcc main.c -o /usr/local/bin/QuickOverflow
@@ -18,7 +18,7 @@ arch_linux: main.c
 	chmod +x search.py
 	sudo pacman -S python-pipenv
 	sudo pacman -S pyenv
-	pipenv install --python 3.13
+	pipenv install --python python3
 	pipenv install pyinstaller
 	# Removed pipenv shell to prevent build interruption
 	pipenv run pip3 install -r requirements.txt
