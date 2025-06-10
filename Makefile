@@ -27,4 +27,5 @@ arch_linux: main.c
     
 #to remove the binaries, use this
 uninstall:
-	rm -rf bin
+	sudo rm /usr/local/bin/search
+	sudo rm /usr/local/bin/QuickOverflow
