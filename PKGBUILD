@@ -1,5 +1,5 @@
 # Maintainer: SpaciousCoder78 <aryankmmiv@outlook.com>
-pkgname=QuickOverflow
+pkgname=quickoverflow
 pkgver=3.0.0
 pkgrel=1
 pkgdesc="A CLI Tool to auto-detect code errors and open solutions"
@@ -19,13 +19,13 @@ build() {
         pipenv install pyinstaller
     fi
 
-    gcc main.c -o QuickOverflow
+    gcc main.c -o quickoverflow
     chmod +x search.py
     pipenv run pyinstaller --onefile --name search search.py
 }
 
 package() {
     cd "$srcdir/pyoverflow-cli"
-    sudo install -Dm755 QuickOverflow "/usr/local/bin/QuickOverflow"
+    sudo install -Dm755 QuickOverflow "/usr/local/bin/quickoverflow"
     sudo install -Dm755 dist/search "/usr/local/bin/search"
 }
