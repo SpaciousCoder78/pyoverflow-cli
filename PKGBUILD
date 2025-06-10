@@ -26,6 +26,6 @@ build() {
 
 package() {
     cd "$srcdir/pyoverflow-cli"
-    sudo install -Dm755 QuickOverflow "/usr/local/bin/quickoverflow"
+    sudo install -Dm755 quickoverflow "/usr/local/bin/quickoverflow"
     sudo install -Dm755 dist/search "/usr/local/bin/search"
 }
