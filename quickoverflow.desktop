@@ -1,0 +1,10 @@
+[Desktop Entry]
+Version=1.0
+Name=QuickOverflow
+Comment=A CLI Tool to auto-detect code errors and open solutions.
+Exec=gnome-terminal -- /usr/local/bin/QuickOverflow
+Path=/home
+Icon=/usr/share/icons/Humanity/apps/32/quickoflow.png
+Terminal=True
+Type=Application
+Categories=Utility;Development;
