@@ -19,11 +19,12 @@
 > AI generated issues and PRs will be denied. I don't want QuickOverflow to be vibe developed. Feel free to use LLMs to fix bugs or critical errors but rest of the code needs to be human written.
 
 <br>
+<p align=center"
 <a href="https://aur.archlinux.org/packages/quickoverflow"> 
     <img src=".github/img/aurpromo.png" height="100" > 
     </img> 
 </a>
-
+</p>
 <br>
 
 A Command Line Tool for Unix Based Operating Systems to instantly open Stack Overflow Solution for corresponding error
