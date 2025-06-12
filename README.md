@@ -2,7 +2,7 @@
 
 
 
-![image](https://github.com/user-attachments/assets/f717ccc0-c2b5-43b6-b8c9-bb305e4dcfbb)
+<img src="quickoflow.png" height="100" width="auto" align-content="center">
 
 
 ![C](https://img.shields.io/badge/c-%2300599C.svg?style=for-the-badge&logo=c&logoColor=white)
@@ -15,6 +15,14 @@
 > [!WARNING]
 > AI generated issues and PRs will be denied. I don't want QuickOverflow to be vibe developed. Feel free to use LLMs to fix bugs or critical errors but rest of the code needs to be human written.
 
+<br>
+<a href="https://aur.archlinux.org/packages/quickoverflow"> 
+    <img src=".github/img/aurpromo.png" height="100" > 
+    </img> 
+</a>
+
+<br>
+
 A Command Line Tool for Unix Based Operating Systems to instantly open Stack Overflow Solution for corresponding error
 
 Tired of googling all the time by copy pasting errors and getting incorrect solutions from LLMs?
@@ -23,7 +31,7 @@ QuickOverflow has a solution for that.
 
 QuickOverflow is a Command Line Tool for Linux based systems to quickly get to solutions for your errors on browser right from your terminal, without ever clicking on your browser icon.
 
-As of v2.1.0, QuickOverflow only supports Python debugging. However, support for other languages is planned and underway.
+As of v3.0.1, QuickOverflow only supports Python debugging. However, support for other languages is planned and underway.
 
 ## Getting Started
 
@@ -34,32 +42,33 @@ To get started you must have:
 
 Most distributions come with Python3 installed, however Python 3.12 is highly recommended for dependency compatibility
 
-Check your python version using
-
-```sh
-$ python3 --version
-```
-If you have a different version, follow the steps below:
-
-For Ubuntu/Debian Based Distros
-
-```sh
-$ sudo apt install python3.12
-```
-
-For Fedora/CentOS/RedHat Based Distros
-
-```sh
-$ sudo dnf install python3.12
-```
-
-For Arch Linux Based Distros
-
-```sh
-$ sudo pacman -S python312
-```
 
 ## Installation
+
+QuickOverflow is now available on AUR for Arch Linux Users!
+
+QuickOverflow on Arch Linux requires `yay` to be installed.
+
+Install `yay` using the following command
+
+```sh
+$ sudo pacman -S yay
+```
+
+- Install QuickOverflow from AUR using `yay`
+
+```sh
+$ sudo yay -S quickoverflow
+```
+
+- Start QuickOverflow by typing
+
+```sh
+$ QuickOverflow
+```
+
+
+For Non Arch Linux Users/Building from source:
 
 - Clone the repository 
 
@@ -79,16 +88,12 @@ $ cd QuickOverflow
 $ make
 ```
 
-- Run the run script to start using QuickOverflow
+- Run the command to start using QuickOverflow
 
 ```sh
-$ sh run.sh
+$ QuickOverflow
 ```
-- To uninstall QuickOverflow
 
-```sh
-$ make uninstall
-```
 
 ## User Manual
 
@@ -112,4 +117,40 @@ Type `help` to get a list of supported commands
 
 Type `search` to start searching for errors from your code
 
+## Maintainer
 
+<table>
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Role</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td><a href="https://github.com/spaciouscoder78" > Aryan Karamtoth</td>
+            <td>Author</td>
+        </tr>
+        <tr>
+            <td><a href="https://github.com/lonelyguy123">Shastha Tyarla</td>
+            <td>Maintainer</td>
+        </tr>
+    </tbody>
+</table>
+
+## Credits
+
+<table>
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Contribution</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td><a href="https://github.com/honeypallakonda" > Honey Pallakonda</td>
+            <td>App Icon</td>
+        </tr>
+    </tbody>
+</table>
