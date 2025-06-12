@@ -2,6 +2,7 @@
 #Update 2.1.0 - Added make to replace install.sh
 #type make into terminal to install QuickOverflow
 ubuntu: main.c
+	sudo apt install gnome-terminal
 	sudo apt install pip
 	sudo apt install pipenv
 	pipenv install --python python3
@@ -11,6 +12,8 @@ ubuntu: main.c
 	chmod +x search.py
 	pipenv run pyinstaller --onefile --name search search.py
 	sudo mv "dist/search" "/usr/local/bin"
+	sudo mv "quickoflow.png" "/usr/share/icons/Humanity/apps/32"
+	sudo mv "quickoverflow.desktop" "/home/$$USER/.local/share/applications"
 
 arch_linux: main.c
 	sudo pacman -S gcc
