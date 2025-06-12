@@ -1,8 +1,11 @@
 # QuickOverflow
 
 
+<p align="center">
+  <img src="quickoflow.png" height="100" width="auto" align-content="center">
+</p>
 
-<img src="quickoflow.png" height="100" width="auto" align-content="center">
+
 
 
 ![C](https://img.shields.io/badge/c-%2300599C.svg?style=for-the-badge&logo=c&logoColor=white)
