@@ -110,6 +110,11 @@ $ make arch_linux
 $ QuickOverflow
 ```
 
+- To uninstall QuickOverflow, type this in source
+  
+```sh
+$ make uninstall
+```
 
 ## User Manual
 
