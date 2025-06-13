@@ -30,4 +30,7 @@ arch_linux: main.c
     
 #to remove the binaries, use this
 uninstall:
-	rm -rf bin
+	sudo rm /usr/local/bin/search
+	sudo rm /usr/local/bin/QuickOverflow
+	sudo rm /usr/share/icons/Humanity/apps/32/quickoflow.png
+	sudo rm /usr/$$USER/.local/share/applications/quickoverflow.desktop
