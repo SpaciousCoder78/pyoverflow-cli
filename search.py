@@ -7,16 +7,22 @@ import subprocess,shlex
 
 #pysearch is a tool to debug incoming errors from python scripts
 cmd = input("py-search > ")
-try:
-    process = subprocess.Popen(shlex.split(cmd), stdout=subprocess.PIPE,
-                                     stderr=subprocess.PIPE, cwd=".")
 
-    stdout, stderr = process.communicate()
+if not cmd.startswith("python") or cmd.startswith("python3"):
+    print("QuickOverflow Error: Only 'python' or 'python3' commands are allowed.")
+    print("Use QuickOverflow’s search feature to browse directories instead.")
 
-    print(stdout.decode('utf-8'))
-    print(stderr.decode('utf-8'))
+else:
+    try:
+        process = subprocess.Popen(shlex.split(cmd), stdout=subprocess.PIPE,
+                                        stderr=subprocess.PIPE, cwd=".")
 
-    pyoverflow3.submit_error(str(stderr),2)
+        stdout, stderr = process.communicate()
 
-except Exception as e:
-    print("QuickOverflow Error: " + e)
+        print(stdout.decode('utf-8'))
+        print(stderr.decode('utf-8'))
+
+        pyoverflow3.submit_error(str(stderr),2)
+
+    except Exception as e:
+        print("QuickOverflow Error: " + e)
