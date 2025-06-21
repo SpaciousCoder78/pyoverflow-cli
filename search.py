@@ -22,7 +22,13 @@ else:
         print(stdout.decode('utf-8'))
         print(stderr.decode('utf-8'))
 
-        pyoverflow3.submit_error(str(stderr),2)
+        error_output = stderr.decode('utf-8')
+        if error_output:
+            try:
+
+                pyoverflow3.submit_error(str(error_output),2)
+            except Exception as e:
+                print("QuickOverflow Error: " + str(e))
 
     except Exception as e:
-        print("QuickOverflow Error: " + e)
+        print("QuickOverflow Error: " + str(e))
