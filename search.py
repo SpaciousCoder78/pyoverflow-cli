@@ -8,7 +8,7 @@ import subprocess,shlex
 #pysearch is a tool to debug incoming errors from python scripts
 cmd = input("py-search > ")
 
-if not cmd.startswith("python") or cmd.startswith("python3"):
+if not (cmd.startswith("python") or cmd.startswith("python3")):
     print("QuickOverflow Error: Only 'python' or 'python3' commands are allowed.")
     print("Use QuickOverflow’s search feature to browse directories instead.")
 
